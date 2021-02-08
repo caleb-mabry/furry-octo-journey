@@ -18,6 +18,7 @@ Docker Desktop has the ability to enable Kubernetes in the settings, so there's 
 1. `kubectl apply -f the-next-chapter.yaml`
 2. `kubectl apply -f ripping-resource.yaml`
 3. `kubectl apply -f ingress.yaml`
+4. Make sure to install the ingress controller: `helm install quickstart ingress-nginx/ingress-nginx`
 
 #
 # Contributing
