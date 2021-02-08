@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ripping-resource
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: ripping-resource
+  template:
+    metadata:
+      labels:
+        bb: ripping-resource
+    spec:
+      containers:
+      - name: ripping-resource
+        image: ripping-resource-webapp
+        imagePullPolicy: IfNotPresent
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ripping-resource-entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    bb: ripping-resource
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30001
