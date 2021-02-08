@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: the-next-chapter
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: the-next-chapter
+  template:
+    metadata:
+      labels:
+        bb: the-next-chapter
+    spec:
+      containers:
+      - name: the-next-chapter
+        image: thenextchapter
+        imagePullPolicy: IfNotPresent
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: the-next-chapter-entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    bb: the-next-chapter
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30002
