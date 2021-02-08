@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: ng-ingress
+  namespace: default
+spec:
+  rules:
+    - host: thenextchapter.pw
+      http:
+        paths:
+          - backend:
+              serviceName: the-next-chapter-entrypoint
+              servicePort: 80
+            path: /
+    - host: rippingresource.com
+      http:
+        paths:
+          - backend:
+              serviceName: ripping-resource-entrypoint
+              servicePort: 80
+            path: /
