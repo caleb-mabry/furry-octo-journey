@@ -3,27 +3,27 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
+    cert-manager.io/issuer: "letsencrypt-prod"
   name: ng-ingress
   namespace: default
 spec:
-  tls:
-  - hosts:
-    - thenextchapter.pw
-    secretName: thenextchapter-tls
-    - rippingresource.com
-    secretName: rippingresource-tls
   rules:
     - host: thenextchapter.pw
       http:
         paths:
           - backend:
               serviceName: the-next-chapter-entrypoint
-              servicePort: 80
+              servicePort: 443
             path: /
     - host: rippingresource.com
       http:
         paths:
           - backend:
               serviceName: ripping-resource-entrypoint
-              servicePort: 80
+              servicePort: 443
             path: /
+  tls:
+  - hosts:
+    - thenextchapter.pw
+    - rippingresource.com
+    secretName: brand-new-tls
