@@ -6,6 +6,12 @@ metadata:
   name: ng-ingress
   namespace: default
 spec:
+  tls:
+  - hosts:
+    - thenextchapter.pw
+    secretName: thenextchapter-tls
+    - rippingresource.com
+    secretName: rippingresource-tls
   rules:
     - host: thenextchapter.pw
       http:
