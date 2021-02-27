@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ripp
-          image: ripp
+          image: wordpress
           imagePullPolicy: IfNotPresent
 ---
 apiVersion: v1
@@ -28,6 +28,4 @@ spec:
   selector:
     bb: ripp
   ports:
-    - port: 443
-      targetPort: 443
-      nodePort: 30001
+    - port: 80

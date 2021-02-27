@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: the-next-chapter
-        image: thenextchapter
+        image: nextcloud
         imagePullPolicy: IfNotPresent
 ---
 apiVersion: v1
@@ -28,6 +28,4 @@ spec:
   selector:
     bb: the-next-chapter
   ports:
-  - port: 443
-    targetPort: 443
-    nodePort: 30002
+  - port: 80
