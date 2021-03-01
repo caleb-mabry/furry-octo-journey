@@ -3,33 +3,29 @@ kind: Ingress
 metadata:
   name: ng-ingress
   annotations:
-    kubernetes.io/tls-acme: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-production
 spec:
-  args:
-    - --default-ssl-certificate
   tls:
   - hosts:
-      - rippingresource.com
-    secretName: "rippingresource-com-tls-acme"
+    - "rippingresource.com"
+    secretName: "rippingresource-tls"
   rules:
+    - host: "rippingresource.com"
+      http:
+        paths:
+          - backend:
+              service:
+                name: ripping-resource-entrypoint
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
     - host: thenextchapter.pw
       http:
         paths:
           - backend:
               service:
                 name: the-next-chapter-entrypoint
-                port:
-                  number: 80
-            path: /
-            pathType: Prefix
-
-    - host: rippingresource.com
-      http:
-        paths:
-          - backend:
-              service:
-                name: ripping-resource-entrypoint
                 port:
                   number: 80
             path: /
