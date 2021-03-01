@@ -1,31 +1,15 @@
-# Furry-Octo-Journey
+# Furry-Octo-Journey 🐕
 This repository will show all of the steps required to bring all of my applications up in the event of losing my VPS. 
 
-#
-## Requirements
-For this setup I'm going to be using Helm and Kubernetes. Considering most of this development is going to be happening locally until I can figure out HTTPS with NGINX-ingress, you can follow along with me on Windows.
+# Foreword ⏱️
+This repository is still heavily under development and there really isn't much documentation on how things work. I'm still planning on trying to provide documentation for others who might be trying to do something similar to me. I know that the journey to getting all of these things to work cohesively is very difficult but very worth doing. I'm hoping that the documentation and bread crumbs I leave behind will help you advance your understanding 😅
 
-* [Helm Installation](https://helm.sh/docs/intro/install/)
-* [Chocolatey Installation](https://chocolatey.org/install)
-* [Docker Desktop](https://www.docker.com/products/docker-desktop)
+# Ready?
+## What you need
+1. [MicroK8s](https://microk8s.io/docs)
 
-Docker Desktop has the ability to enable Kubernetes in the settings, so there's no need to do that.
-
-**WARNING** If you were poking around and installed Minikube before Kubernetes, you'll run into some issues trying to run `kubectl` commands for Kubernets. [I found a solution that worked for me and seems to be issues others are having](https://stackoverflow.com/questions/57297337/docker-for-desktop-kubernetes-unable-to-connect-to-the-server-dial-tcp-164)
-# 
-# Starting everything up
-
-1. `kubectl apply -f the-next-chapter.yaml`
-2. `kubectl apply -f ripping-resource.yaml`
-3. `kubectl apply -f ingress.yaml`
-4. Make sure to install the ingress controller: `helm install quickstart ingress-nginx/ingress-nginx`
-5. Install [Cert Manager](https://cert-manager.io/docs/installation/kubernetes/). **INSTALL WITH KUBERNETES AND NOT HELM** (As of 2/8/21)
-6. Apply Issuer
-
-#
-# Contributing
-At the time, I'm not really accepting any pull requests. If you have suggestions, feel free to mention them in the issues section of the repository. As this is a learning experience, I can't imagine anyone would want to contribute to this repository. I'm hoping that this repo may serve as a guide to anyone who stumbled across it.
-
+# Lets get started 📔
+Do yourself and a favor and grab a cup of coffee or a nice drink and buckle up. You're in for a wild ride ☕
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
